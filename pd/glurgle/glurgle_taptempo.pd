@@ -217,13 +217,13 @@
 #X obj 1777 419 wrap;
 #X obj 1730 500 -;
 #X obj 1730 537 + 1;
-#X obj 1730 570 change;
-#X obj 1730 608 t b f;
-#X obj 1730 779 /;
-#X obj 1730 830 s speed_ms;
+#X obj 1730 642 change;
+#X obj 1730 680 t b f;
+#X obj 1730 851 /;
+#X obj 1730 902 s speed_ms;
 #X obj 1415 262 loadbang;
 #X msg 1415 292 535.71;
-#X floatatom 1672 830 5 0 0 0 - - - 12;
+#X floatatom 1672 902 5 0 0 0 - - - 12;
 #X obj -396 670 r cutoff1;
 #X obj -271 770 hv.filter~ bandpass1;
 #X obj -419 770 hv.filter~ lowpass;
@@ -237,7 +237,7 @@
 #X obj -187 620 r res2;
 #X msg 53 826 0.5;
 #X msg 163 829 0.5;
-#X floatatom 1661 658 5 0 0 0 - - - 12;
+#X floatatom 1661 730 5 0 0 0 - - - 12;
 #X floatatom 1612 444 5 0 0 0 - - - 12;
 #X obj 1508 333 bng 25 250 50 0 empty empty empty 0 -10 0 10 #e4e4e4 #4d4d4d #373737;
 #N canvas 733 172 450 300 taptempo 0;
@@ -332,12 +332,14 @@
 #X connect 39 0 5 0;
 #X restore 1551 400 pd taptempo;
 #X obj 1551 333 r Button2 @hv_param;
-#X floatatom 1661 756 5 0 0 0 - - - 12;
-#X obj 1661 700 max 100;
+#X floatatom 1661 828 5 0 0 0 - - - 12;
+#X obj 1661 772 max 100;
 #X obj 1415 333 s inittempo;
 #X obj 1450 544 s led2_green @hv_param;
 #X obj 252 525 glurgle_sat predrive;
 #X obj 404 770 glurgle_sat postdrive;
+#X obj 1763 592 select 5 7;
+#X text 1861 591 Filter out 5 and 7 for current purposes, f 25;
 #X connect 1 0 3 0;
 #X connect 2 0 3 1;
 #X connect 3 0 47 0;
@@ -429,7 +431,7 @@
 #X connect 93 1 94 0;
 #X connect 94 0 95 1;
 #X connect 95 0 96 0;
-#X connect 96 0 97 0;
+#X connect 96 0 128 0;
 #X connect 97 0 98 0;
 #X connect 98 0 117 0;
 #X connect 98 1 99 1;
@@ -467,3 +469,4 @@
 #X connect 126 0 106 0;
 #X connect 126 0 105 0;
 #X connect 127 0 18 0;
+#X connect 128 2 97 0;
